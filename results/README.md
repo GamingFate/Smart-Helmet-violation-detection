@@ -19,9 +19,13 @@ results/
 │
 ├── README.md
 ├── results.png
-├── PR_curve.png
-├── F1_curve.png
+├── labels.jpg
+├── BoxPR_curve.png
+├── BoxP_curve.png
+├── BoxR_curve.png
+├── BoxF1_curve.png
 ├── confusion_matrix.png
+├── confusion_matrix_normalized.png
 │
 └── training-images/
     ├── train_batch0.jpg
@@ -41,6 +45,24 @@ results/
 ---
 
 # 🖼️ Dataset Visualization
+
+## Dataset Statistics
+
+The figure below provides an overview of class distribution and bounding box characteristics within the dataset.
+
+![Dataset Statistics](labels.jpg)
+
+### Dataset Overview
+
+* Total Annotated Instances: **3,131**
+* With Helmet: **2,081**
+* Without Helmet: **1,050**
+* Annotation Format: YOLO
+* Two Detection Classes
+
+These statistics help verify dataset quality and class distribution before training.
+
+---
 
 ## Training Dataset Samples
 
@@ -62,6 +84,22 @@ The validation set contains riders under varying viewpoints, backgrounds, and en
 
 ---
 
+# 📈 Training Progress
+
+The figure below summarizes the model's learning behavior across 100 training epochs.
+
+![Training Results](results.png)
+
+### Training Insights
+
+* Training loss decreases consistently throughout training.
+* Precision and recall improve steadily over epochs.
+* Validation metrics stabilize as the model converges.
+* mAP@0.5 reaches approximately **76.5%**.
+* The model demonstrates strong learning and generalization capability.
+
+---
+
 # 🚀 Model Performance
 
 ## Evaluation Metrics
@@ -80,9 +118,29 @@ These results indicate strong detection performance, particularly for helmet-wea
 
 The Precision–Recall Curve illustrates the relationship between precision and recall at different confidence thresholds.
 
-![PR Curve](PR_curve.png)
+![PR Curve](BoxPR_curve.png)
 
 A larger area under the curve represents stronger object detection capability.
+
+---
+
+# 📊 Precision–Confidence Curve
+
+The Precision–Confidence Curve shows how precision changes as confidence thresholds increase.
+
+![Precision Curve](BoxP_curve.png)
+
+Higher confidence thresholds generally result in fewer false positive detections.
+
+---
+
+# 📈 Recall–Confidence Curve
+
+The Recall–Confidence Curve illustrates how many true detections are retained as confidence thresholds increase.
+
+![Recall Curve](BoxR_curve.png)
+
+This graph highlights the trade-off between sensitivity and confidence.
 
 ---
 
@@ -90,7 +148,7 @@ A larger area under the curve represents stronger object detection capability.
 
 The F1 Score combines precision and recall into a single metric and helps identify the optimal operating threshold.
 
-![F1 Curve](F1_curve.png)
+![F1 Curve](BoxF1_curve.png)
 
 The peak of the curve represents the best balance between precision and recall.
 
@@ -107,6 +165,16 @@ It helps visualize:
 * Correct classifications
 * Misclassifications
 * Class-wise performance
+
+---
+
+# 📌 Normalized Confusion Matrix
+
+The normalized confusion matrix presents class-wise performance in percentage form.
+
+![Normalized Confusion Matrix](confusion_matrix_normalized.png)
+
+This provides a clearer understanding of prediction accuracy independent of class frequency.
 
 ---
 
@@ -151,8 +219,11 @@ The experimental results demonstrate that YOLOv8 is an effective framework for r
 ## ⭐ Highlights
 
 * Custom Helmet Detection Dataset
-* YOLOv8 Object Detection Framework
-* Real-Time Inference Capability
+* YOLOv8 Large (YOLOv8l) Architecture
+* mAP@0.5 of **76.5%**
+* AP of **87.7%** for Helmet Detection
+* Trained on **3,131 Annotated Instances**
 * Comprehensive Evaluation Metrics
 * Validation Prediction Analysis
+* Real-Time Inference Capability
 * Practical Road Safety Application
