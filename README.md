@@ -5,19 +5,30 @@
 ![Computer Vision](https://img.shields.io/badge/Computer%20Vision-Object%20Detection-orange)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-# 🏍️ Real-Time Helmet Detection System using YOLOv8
-
-## Overview
+## 📌 Overview
 
 Road safety remains one of the most critical challenges in modern transportation systems. Among two-wheeler riders, failure to wear a helmet significantly increases the risk of severe head injuries and fatalities during accidents.
 
-This project presents a real-time helmet detection system developed using the YOLOv8 object detection framework. The system automatically identifies whether a motorcycle rider is wearing a helmet or not from images and video streams. The goal is to demonstrate how deep learning and computer vision can assist traffic monitoring systems by automating helmet compliance detection.
+This project presents a **real-time helmet detection system** developed using the YOLOv8 object detection framework. The system automatically identifies whether a rider is wearing a helmet or not from images and video streams.
 
-The project was developed as part of a Minor Project in the Department of Electrical Engineering at Manipal University Jaipur.
+The project was developed as part of a **Minor Project** in the Department of Electrical Engineering at **Manipal University Jaipur**.
 
 ---
 
-## Problem Statement
+## 🚀 Key Highlights
+
+* Custom-trained YOLOv8l model
+* Real-time image and video inference
+* Helmet and no-helmet classification
+* GPU-accelerated detection using PyTorch
+* Trained on a custom annotated dataset
+* mAP@0.5 of **76.5%**
+* AP of **87.7%** for Helmet Detection
+* Comprehensive evaluation using Precision, Recall, F1 Score, and mAP metrics
+
+---
+
+## 🎯 Problem Statement
 
 Manual monitoring of helmet compliance is difficult in high-traffic environments. Traffic personnel cannot continuously observe every vehicle at every junction, leading to inconsistent enforcement of safety regulations.
 
@@ -26,23 +37,11 @@ The objective of this project is to develop an automated computer vision solutio
 * Detecting riders wearing helmets
 * Detecting riders without helmets
 * Processing images and video streams in real time
-* Providing a scalable foundation for intelligent traffic monitoring systems
+* Demonstrating practical applications of deep learning in traffic safety monitoring
 
 ---
 
-## Key Features
-
-* Real-time helmet detection
-* Detection of "With Helmet" and "Without Helmet" riders
-* YOLOv8-based object detection framework
-* Custom-trained deep learning model
-* Video and image inference support
-* Performance evaluation using industry-standard metrics
-* Lightweight deployment pipeline using Python and OpenCV
-
----
-
-## Technology Stack
+## 🛠️ Technology Stack
 
 ### Programming Language
 
@@ -55,71 +54,73 @@ The objective of this project is to develop an automated computer vision solutio
 ### Libraries Used
 
 * OpenCV
+* PyTorch
 * NumPy
-* Matplotlib
-* Ultralytics YOLO
 * Pandas
+* Matplotlib
+* CVZone
 
-### Development Environment
+### Development Tools
 
-* Jupyter Notebook
 * Google Colab
+* Jupyter Notebook
 * VS Code
 
 ---
 
-## Dataset
+## 📂 Dataset
 
-The model was trained using a custom helmet detection dataset containing annotated motorcycle rider images.
+The model was trained using a custom helmet detection dataset containing annotated rider images.
 
 ### Classes
 
-1. With Helmet
-2. Without Helmet
+| Class ID | Class Name     |
+| -------- | -------------- |
+| 0        | With Helmet    |
+| 1        | Without Helmet |
 
-### Dataset Characteristics
+### Dataset Features
 
-* Custom annotated dataset
-* Diverse rider viewpoints
-* Real-world traffic scenarios
-* Multiple lighting conditions
-* Augmented training samples
-
-The dataset was prepared in YOLO format and used for supervised object detection training.
+* Custom annotations
+* Real-world traffic imagery
+* Multiple viewpoints
+* Diverse rider appearances
+* Various lighting conditions
+* YOLO format annotations
 
 ---
 
-## Project Workflow
+## ⚙️ Project Workflow
 
-### Step 1: Data Collection
+### 1. Data Collection
 
-Images containing motorcycle riders with and without helmets were collected and organized into separate categories.
+Images containing riders with and without helmets were collected and organized into separate categories.
 
-### Step 2: Data Annotation
+### 2. Data Annotation
 
-Bounding boxes were created around riders and helmet regions using annotation tools compatible with YOLO format.
+Bounding boxes were created around target objects using YOLO-compatible annotation tools.
 
-### Step 3: Data Preprocessing
-
-The dataset underwent preprocessing operations including:
+### 3. Data Preprocessing
 
 * Image resizing
 * Normalization
 * Data augmentation
-* Train-validation splitting
+* Train-validation split
 
-### Step 4: Model Training
+### 4. Model Training
 
-The YOLOv8l model was trained on the custom dataset using transfer learning.
+The YOLOv8l model was trained using transfer learning.
 
-Training Configuration:
+#### Training Configuration
 
-* Model: YOLOv8l
-* Image Size: 640 × 640
-* Optimizer: AdamW
-* Epochs: 100
+| Parameter  | Value     |
+| ---------- | --------- |
+| Model      | YOLOv8l   |
+| Epochs     | 100       |
+| Image Size | 640 × 640 |
+| Optimizer  | AdamW     |
 
-### Step 5: Model Evaluation
+### 5. Evaluation
 
 The trained model was evaluated using:
 
@@ -129,61 +130,57 @@ The trained model was evaluated using:
 * Average Precision (AP)
 * Mean Average Precision (mAP)
 
-### Step 6: Inference
+### 6. Inference
 
-The final model performs real-time detection on images and videos by generating bounding boxes around detected classes and displaying confidence scores.
+The final model performs real-time detection on images and videos while displaying class labels, confidence scores, and bounding boxes.
 
 ---
 
-## System Architecture
+## 🧠 System Architecture
 
+```text
 Input Image / Video
-
-↓
-
-Image Preprocessing
-
-↓
-
-YOLOv8 Detection Network
-
-↓
-
-Feature Extraction
-
-↓
-
-Object Classification
-
-↓
-
-Helmet / No Helmet Prediction
-
-↓
-
-Detection Visualization
+          │
+          ▼
+   Preprocessing
+          │
+          ▼
+      YOLOv8l
+          │
+          ▼
+ Feature Extraction
+          │
+          ▼
+ Classification
+          │
+          ▼
+ Helmet / No Helmet
+          │
+          ▼
+ Detection Output
+```
 
 ---
 
-## Performance Results
+## 📊 Performance Results
 
-The trained model achieved the following results:
-
-| Metric              | Value |
+| Metric              | Score |
 | ------------------- | ----- |
 | AP (With Helmet)    | 0.877 |
 | AP (Without Helmet) | 0.654 |
 | mAP@0.5             | 0.765 |
 
-The model demonstrated strong performance in identifying helmet usage under varying environmental conditions and traffic scenes.
+The model demonstrated strong performance in identifying helmet usage under varying environmental conditions and traffic scenarios.
+
+For detailed evaluation metrics, confusion matrices, training curves, and prediction examples, please refer to the **results** directory.
 
 ---
 
-## Challenges Encountered
+## 🔍 Challenges Encountered
 
 ### Class Imbalance
 
-The dataset contained more helmet samples compared to no-helmet samples, which affected model learning.
+The dataset contained more helmet samples than no-helmet samples, affecting class distribution.
 
 ### Occlusions
 
@@ -191,7 +188,7 @@ Partial visibility of riders and helmets occasionally reduced detection confiden
 
 ### Complex Backgrounds
 
-Traffic environments contain vehicles, pedestrians, and visual clutter that increase detection difficulty.
+Traffic environments contain visual clutter, vehicles, and pedestrians that increase detection difficulty.
 
 ### Lighting Variations
 
@@ -199,72 +196,66 @@ Detection performance varied under shadows, low-light conditions, and strong sun
 
 ---
 
-## Results and Observations
-
-The trained YOLOv8 model successfully learned discriminative features related to helmet usage and produced reliable detections on unseen images.
-
-Key observations include:
-
-* High precision for helmet detection
-* Stable performance across different traffic scenarios
-* Fast inference suitable for real-time applications
-* Good generalization capability on validation data
-
-The project demonstrates the effectiveness of modern object detection architectures for traffic safety applications.
-
----
-
-## Applications
+## 💡 Applications
 
 * Traffic surveillance systems
-* Smart city monitoring
 * Road safety awareness programs
+* Smart city monitoring
 * Automated compliance monitoring
-* Educational and research purposes
-* Computer vision learning projects
+* Educational and research projects
+* Computer vision learning applications
 
 ---
 
-## Future Scope
+## 🔮 Future Scope
 
-The current project focuses exclusively on helmet detection.
+The current implementation focuses exclusively on helmet detection.
 
-Possible future enhancements include:
+Potential future enhancements include:
 
-* Detection of two-wheelers and riders separately
-* Rider-to-vehicle association logic
+* Two-wheeler detection
+* Rider-to-vehicle association
 * Number plate detection
-* Optical Character Recognition (OCR) integration
-* Violation logging and reporting
-* Edge-device deployment for real-time roadside monitoring
+* OCR-based number plate recognition
+* Violation logging system
+* Edge-device deployment
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 
-project/
-
-├── docs/
-
-├── models/
-
-├── results/
-
-├── src/
-
-├── demo/
-
+```text
+Smart-Helmet-violation-detection/
+│
 ├── README.md
-
+├── LICENSE
 ├── requirements.txt
-
-└── LICENSE
+│
+├── src/
+│   ├── helmet_detection_image.py
+│   ├── helmet_detection_video.py
+│   ├── Helmet_Detection.ipynb
+│   └── README.md
+│
+└── results/
+    ├── README.md
+    ├── evaluation metrics
+    ├── training visualizations
+    ├── confusion matrices
+    └── prediction samples
+```
 
 ---
 
-## Author
+## 👨‍💻 Author
 
-Naman Bhasin
+**Naman Bhasin**
 
+B.Tech – Electrical and Computer Engineering
+Manipal University Jaipur
 
+---
 
+## 📜 License
+
+This project is licensed under the MIT License.
