@@ -251,8 +251,7 @@ Smart-Helmet-violation-detection/
 
 **Naman Bhasin**
 
-B.Tech – Electrical and Computer Engineering
-Manipal University Jaipur
+
 
 ---
 
